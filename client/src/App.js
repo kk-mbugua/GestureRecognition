@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Webcam from "react-webcam"; // https://www.npmjs.com/package/react-webcam
+import ReactPlayer from "react-player"; // https://www.npmjs.com/package/react-player
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends Component {
+  state = {
+    playbackUrl: null
+  };
+  videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "user"
+  };
+  playbackStyle = {
+    height: "200px",
+    width: "200px"
+  };
+
+  render() {
+    return (
+      <div style={this.playbackStyle}>
+        <Webcam
+          audio={false}
+          mirrored={true}
+          videoConstraints={this.videoConstraints}
+          height={400}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          {" "}
+        </Webcam>
+        <ReactPlayer url={this.state.playbackUrl} />
+      </div>
+    );
+  }
 }
-
 export default App;
