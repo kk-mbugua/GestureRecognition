@@ -2,15 +2,12 @@
   "name": "gesture_recognition",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "cd server && npm start",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "author": "Kibugi Kamau Mbugau",
+  "license": "ISC"
 }
